@@ -1,20 +1,11 @@
 ---
-title: "Teaching experience 2"
+title: "MECH2700 Engineering Analysis I Tutor"
 collection: teaching
-type: "Workshop"
-permalink: /teaching/2015-spring-teaching-1
-venue: "University 1, Department"
-date: 2015-01-01
-location: "City, Country"
+type: "Tutoring"
+permalink: /teaching/2700
+venue: "University of Queensland, School of Mechanical and Mining Engineering"
+date: 2700
+location: "Brisbane, Australia"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
-
-Heading 1
-======
-
-Heading 2
-======
-
-Heading 3
-======
+Taught undergraduate students basic engineering analysis, coding, and software development. Code was taught in Python. 
