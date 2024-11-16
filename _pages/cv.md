@@ -11,7 +11,7 @@ redirect_from:
 
 Education
 ======
-* Ph.D Candidate in Astrodynamics, UNSW Canberra, 2028 (expected)
+* Ph.D Candidate in Astrodynamics, UNSW Canberra, 2028 (currently enrolled)
 * Bachelor of Engineering (Honours, first class) in Mechanical & Aerospace Engineering, University of Queensland, 2022
 * Bachelor of Science in Mathematics, University of Queensland, 2022
 
