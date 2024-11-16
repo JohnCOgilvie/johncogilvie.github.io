@@ -11,7 +11,7 @@ locale                   : "en-AUS"
 title                    : "John C. Ogilvie / Academic Portfolio & CV"
 title_separator          : "-"
 name                     : &name "John C. Ogilvie"
-description              : &description "personal description"
+description              : &description "Student researcher in astrodynamics and spacecraft trajectory design for cislunar missions, and Modelling & Simulation Engineer at Shoal Group."
 url                      : https://johncogilvie.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "JohnCOgilvie/johncogilvie.github.io"
@@ -22,21 +22,21 @@ repository               : "JohnCOgilvie/johncogilvie.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
-  pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  name             : "John C. Ogilvie"
+  pronouns         : "he/him" 
+  bio              : "Astrodynamics PhD student and M&S Engineer"
+  location         : "Canberra, ACT, Australia"
+  employer         : "UNSW Canberra Space"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "john.ogilvie@unsw.edu.au" 
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  googlescholar    : #"https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
   impactstory      : # URL
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            : #"http://orcid.org/yourorcidurl"
   semantic         : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   researchgate     : # URL
   scopus           : # URL
 
@@ -44,12 +44,12 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "academicpages"
+  github           : #"academicpages"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
@@ -58,7 +58,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : "johnogilvie5446"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
