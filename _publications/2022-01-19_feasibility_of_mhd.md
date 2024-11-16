@@ -6,7 +6,7 @@ permalink: /publication/2022-01-19_feasibility_of_mhd
 excerpt: 'This paper is about utilising MHD aerobraking to augment drag when landing on Mars.'
 date: 2022-01-19
 venue: 'AIAA SciTech 2023'
-paperurl: '[AIAA ARC Publication](https://arc.aiaa.org/doi/10.2514/6.2023-2560)'
+paperurl: 'https://arc.aiaa.org/doi/10.2514/6.2023-2560'
 citation: 'John C. Ogilvie, David Gildfind, Rowan Gollan and Nicholas N. Gibbons. "Feasibility of MHD Aerobraking for Use in Martian Atmospheric Entry," AIAA 2023-2560. AIAA SCITECH 2023 Forum. January 2023. https://arc.aiaa.org/doi/10.2514/6.2023-2560'
 ---
 
