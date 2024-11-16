@@ -22,9 +22,6 @@ I am currently a PhD Candidate at the University of New South Wales, based on th
 
 Just try and tell me things like this don't just draw you in and make you want to understand, to hear what music moves them. 
 
-A personal website
-======
-
 
 References
 ------
