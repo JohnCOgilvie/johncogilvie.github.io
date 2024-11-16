@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-AUS"
-title                    : "UNDER CONSTRUCTION" #"John C. Ogilvie / Academic Portfolio & CV"
+title                    : "John C. Ogilvie / Academic Portfolio & CV"
 title_separator          : "-"
 name                     : &name "John C. Ogilvie"
 description              : &description "Student researcher in astrodynamics and spacecraft trajectory design for cislunar missions, and Modelling & Simulation Engineer at Shoal Group."
