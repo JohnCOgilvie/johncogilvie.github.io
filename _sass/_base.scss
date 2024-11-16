@@ -14,6 +14,13 @@ body {
   color: $text-color;
   font-family: $global-font-family;
   line-height: 1.5;
+  background-image: url("images\portBackground.jpg");
+  background-size: cover;
+  background-position: 0% 25%;
+  background-color: #A8322D;
+  background-attachment: fixed;
+  cursor: crosshair;
+}
 
   &.overflow--hidden {
     /* when primary navigation is visible, the content in the background won't scroll */
