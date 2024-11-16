@@ -2,7 +2,7 @@
 title: "Poster Presentation on Preliminary Scoping Phase of PhD Project"
 collection: talks
 type: "Poster presentation"
-permalink: /talks/2024-11-20
+permalink: /talks/2024-11-20_prelim_scope_phd
 venue: "UNSW SDA/STM Conference 2024"
 date: 2024-11-20
 location: "Canberra, ACT"
