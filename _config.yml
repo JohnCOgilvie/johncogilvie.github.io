@@ -21,7 +21,7 @@ repository               : "JohnCOgilvie/johncogilvie.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "AIAA Photo.jpg"
   name             : "John C. Ogilvie"
   pronouns         : "he/him" 
   bio              : "Astrodynamics PhD student and M&S Engineer"
