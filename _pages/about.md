@@ -22,6 +22,22 @@ I am currently a PhD Candidate at the University of New South Wales, based on th
 
 Just try and tell me things like this don't just draw you in and make you want to understand, to hear what music moves them. 
 
+# PhD Project
+There are a number of ideas I'm currently interested in for my project. As discussed above, they all centre around the concepts of trajectory design for cislunar applications. If any of the below projects touch on your research areas or you'd like to open a dialogue about them, I encourage you to get in touch via email (in the sidebar)!
+## Spacecraft Trajectory Design for Cislunar Space Traffic Management
+At the time of writing, there are 38 public and private missions planned to the Moon, in addition to those already there. This is to become a very congested region, and the space will have to be shared. 
+
+Much of the cislunar STM research that has been done to date revolves around sensing and reactive management of cislunar events. An area that is less well studied is proactive design-based management; that is, can we define new constraints, trajectories, or design principles to design better transfers and cislunar behaviour to enable space traffic management?
+
+## Spacecraft Trajectory Design for Space Domain Awareness
+Along the same vein as the above, to manage a congested region, we need to be able to see it. Yet coverage of the entire cislunar region has been shown to be impossible using ground-based sensors. 
+
+What does space-based sensing to enable coverage of the entire lunar region look like? Only certain sensors make sense to use and they will likely have to be cooperative, either with other space-based sensors or ground-based. 
+
+## Off-nominal events in Cislunar Space
+Missed thrust events or thrust execution errors are more common than is often realised. In an environment as chaotic and unstable as the cislunar region, missing a maneouvre can be catastrophic for mission success. 
+
+Robust trajectory design is already well understood, but can we expand or improve on this using other propulsion technology (low-thrust or hybrid-thrust)? How do we best accomplish remedial action in the case of an off-nominal event? 
 
 References
 ------
