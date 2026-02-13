@@ -22,30 +22,45 @@ I am currently a PhD Student at the University of New South Wales, based on thei
 
 Just try and tell me things like this don't just draw you in and make you want to understand, to hear what music moves them. 
 
-# PhD Project - Design and Analysis of Risk-Resilient Cislunar Spacecraft Trajectories
+# PhD Project - Cislunar Robust Trajectory Optimisation Under Navigation Uncertainty and Thrust Execution Error
 I've explored a number of ideas for my project, and I expect it will continue to evolve over the remainder of my study. As discussed above, they all centre around the concepts of trajectory design for cislunar applications. If my work touches on your research areas or you'd like to open a dialogue about it, I encourage you to get in touch via email (in the sidebar)!
 ## A risky region of space
 Cislunar space represents a highly non-linear, chaotic, and uncertain area of space. At the time of writing, there are 38 public and private missions planned to the Moon, in addition to those already there. This is to become a very congested region, and the space will have to be shared. 
 
-But unlike elliptical 2-body Keplerian orbits, when manoeuvres go wrong, either misfiring or not firing altogether, the dynamics of the region don't always permit a second attempt one period later. Periodic orbits are few and typically unstable, and most often transfers between them do not lie on repeating paths. Any failure to insert onto the nominal path typically means asymptotic departure from that path. How do we design or choose trajectories that account for this? What do we do when these failures occur?
+But unlike elliptical 2-body Keplerian orbits, when manoeuvres go wrong, either misfiring or not firing altogether, the dynamics of the region don't always permit a second attempt one period later. Periodic orbits are few and typically unstable, and most often transfers between them do not lie on repeating paths. Any failure to insert onto the nominal path typically means asymptotic departure from that path. Furthermore, our sensing equipment is not perfect, and uncertainties arise in the knowledge of our spacecraft state through the navigation process. How do we design or choose trajectories that account for this? What do we do when these failures occur? Is there some optimal trade-off between awaiting a better state estimate and requiring correction manoeuvres earlier to enable cheap recovery?
 
-## Getting the lay of the land
-The first step to understanding the design space available to us is to quantify the properties of various cislunar orbits by metrics which can give us a quick overview of how an orbit may be exploitable for transfer design. These metrics include things like stability, Jacobi constant, observability, transfer $$\Delta v$$ requirements, and $$\delta\Delta v$$ acceptability. 
+## Understanding the combination of these effects
+When trajectory designers want to optimise for these uncertainties and errors, the exact state of the spacecraft - and the knowledge of that state - will not be known ahead of time, but the statistical distributions can be defined and propagated. We need to first combine these effects to produce a knowledge-constrained understanding of where we might end up following a manoeuvre with stochastic error. This combined distribution can now take the role of a metric against which the trajectory can be optimised. It tells us the probability that we will think we are in a particular state following a thrust perturbation from nominal when our knowledge is constrained by navigation effects. 
 
-The last of these can be understood as the allowable error in a transfer manoeuvre that still enables mission success without further intervention (i.e. if we require 3km/s of $$\Delta v$$, whats the plus/minus on that 3km/s where the transfer can still achieve the desired orbit? 5%? 1%?). This allows us to have a quick-look heuristic by which we can filter orbits for the robustness of transfers to them, even though in the real world TCMs would clean up any actual manoeuvre error. 
+Ideally, this combination would be lightweight and simple to propagate - not an easy task. Cislunar space is chaotic, unstable, and most importantly, non-linear. These non-linearities have been examined before in the process of robust trajectory design and more often than not introduce massive computational penalties for optimisation algorithms: every new execution run of the optimisation loop has to recompute these complex non-linearities through particle filters (e.g. CUT, Monte Carlo, etc) or other highly expensive methods. So for our purposes, a computationally light, straightforward combination of these two effects is critical in producing fast optimisation of trajectories. Such a lightweight model will necessarily lack some of the nuance and fidelity of the full non-linear models, but if it allows us to skim over the solution space quickly and provides us with a first-pass estimate for optimal trajectories under these uncertainties, then mission designers can use this first-pass as an initial guess when introducing the non-linear effects. 
 
-This catalog of useful orbit and associated transfer parameters allows future work to examine the idea of waypoint orbits. For example, perhaps a particular mission orbit is particularly stringent on $$\delta\Delta v$$ acceptability and introduces a high degree of risk if a manoeuvre execution error occurs, but a nearby one has much broader allowable errors - mission designers may then target the second orbit for the TLI, exploiting its transfer robustness, and then design a secondary manoeuvre to the mission orbit. Initially, this was included in my project, but the design space is so large for orbit-to-orbit transfer design that we decided to focus on other areas, such as...
+## Verifying and validating the model
+Whatever model is produced in these efforts will need to be evaluated for validity. It serves no purpose to propose a simplified model that is so simplified it no longer represents the actual distribution of knowledge following a manoeuvre with error. Following the development of the analytical model above, a particle filter method will be employed to examine its efficacy in various regions of space and dynamic models (including both 2-body Keplerian dynamics and the CRTBP). The bounds of validity for the model will also be defined - state-dependent bounds will be necessary to enable this tool to be actually useful for future designs, rather than simply the test cases used in this step. 
 
-## Quantifying the real-world implications of failures
-As discussed above, in the real world, FDOs would design TCMs to clean up any manoeuvre error in the TLI. In the first part of this work, we looked at $$\delta\Delta v$$ acceptability as a heuristic rather than a way spacecraft may fly in the real world - now we want to actually model these TCMs and identify how errors in initial transfer manoeuvre map to total $$\Delta v$$ budget for the mission. 
+As in every verification and validation step in engineering, there is the possibility of failure. The analytical model developed may not work. In this case, the plan is to utilise existing published models for robust trajectory analysis, such as unscented transforms for instance, and simply accept the increased computational effort while utilising GPU-acceleration to mitigate it somewhat in order to move to the next step. 
 
-This part of the work focusses on a few orbits of interest to upcoming missions - NRHOs, DROs, and Lyapunov orbits are the most obvious to include here, but others may be included depending on how successful initial experimentation is. 
+## Optimising transfers
+Finally, we can use the model we have developed. Three cislunar transfer test cases will be used to illustrate the models utility and efficacy in optimising transfers: 
+- a direct transfer from LEO to an NRHO:
+![LEO to NRHO transfer, utilising constrained departure altitude, constrained end position, and constrained to an apse point at NRHO apolune](../images/TLI_leo2nrhol2_cons-stalt,endapse,endpos.png)
+*Example LEO to NRHO transfer, utilising constrained departure altitude, constrained end position, and constrained to an apse point at NRHO apolune*
 
-## Introducing navigation effects
-Finally, to examine how these transfers may perform in the real world and how flight teams may actually respond to errors, we need to think about the error in our state estimation at the time of (and immediately after) a manoeuvre execution error. 
+- a semi-direct transfer, from LEO onto the stable manifold of an axial orbit:
+![Stable manifold of an L1 Axial orbit](../images/AxialL1_StableManifold_Largest.png)
+*Stable manifold of an L1 Axial orbit*
 
-As alluded to above, in simple elliptical orbits, we have some grace in cases of misfiring - after all, in LEO we are only 90 minutes from the same position in the orbit. However, in the chaotic cislunar space, if a manoeuvre misfires or is even missed completely, the spacecraft begins to fall away from the nominal path rapidly, and there may not be a simple path back to the orbit of interest, especially in highly non-linear regions or for orbit insertion manoeuvres. This would lead one to think that immediately rectifying the error and attempting to certify and execute a manoeuvre as soon as possible would be the way to minimise fuel costs and failure risk. However, overlayed on top of the chaotic space is the error in our knowledge of the spacecraft position and velocity, and so a recovery manoeuvre may end up actually exacerbating the situation - and this error in state estimation changes over time (indeed, regions of cislunar space are even completely unobservable from Earth). So is there some optimal case, where we wait long enough for a better orbit determination estimate, but not so long that we travel too far from our mission goal to recover in a reasonable fuel cost?
+- and a low-energy ballistic transfer to a Lyapunov orbit:
+![Example low-energy ballistic transfer to Lyapunov orbit](../images/Ballistictransfer.png)
+*Example low-energy ballistic transfer to Lyapunov orbit [4,5]*
 
+These can be initially designed according to the traditional methodology - i.e. optimised for fuel costs - and from there, we can introduce a number of different potential optimisation metrics:
+- Size of the TCM dispersion, $$\mathscr{E}$$, induced by the model developed - something like root square sum (RSS)
+- Max time of execution of TCM, $$𝑡_𝑐$$, given limit to TCM $$\delta 𝑉$$ or RSS($$\mathscr{E}$$)
+- Minimum total $$\Delta V_T=\Delta V_{nom} + \delta 𝑉_{TCM}$$, given limit to $$𝑡_𝑐$$
+
+Any one of these can then be analysed further.
+
+This methodology and thesis is not intended to provide an expression for the optimal terms - there a many thousands of transfers to the Moon and every one of them will have drastically different optimal properties. Instead, these three example cases are meant to illustrate the utility of the models developed and identify any interesting effects induced by optimising for metrics other than the traditional ones while accounting for resilience to stochastic errors and knowledge constraints. 
 
 References
 ------
@@ -54,4 +69,9 @@ References
 [2] Baker-McEvilly, B., Bhadauria, S., Canales, D., & Frueh, C. (2024). A comprehensive review on Cislunar expansion and space domain awareness. Progress in Aerospace Sciences, 147. https://doi.org/10.1016/j.paerosci.2024.101019
 
 [3] Brian McCarthy, & Kathleen Howell. (2022). Accessing the Vicinity of the L1 Libration Point via Low-Energy Transfers Leveraging Quasi-Periodic Orbits. Astrodynamics Specialist Conference.
+
+[4] Parker, J. S., & Anderson, R. L. (2014). Low-Energy Lunar Trajectory Design (Joseph H. Yuen, Ed.). John Wiley & Sons.
+
+[5] Parker, J. S., & Anderson, R. L. (2013). Targeting low-energy transfers to low lunar orbit. Acta Astronautica, 84, 1–14. https://doi.org/10.1016/j.actaastro.2012.10.033
+
 
