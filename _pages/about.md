@@ -22,7 +22,7 @@ I am currently a PhD Student at the University of New South Wales, based on thei
 
 Just try and tell me things like this don't just draw you in and make you want to understand, to hear what music moves them. 
 
-# PhD Project - Cislunar Robust Trajectory Optimisation Under Navigation Uncertainty and Thrust Execution Error
+# PhD Project - Cislunar Robust Trajectory Optimisation Using Multi-objective Optimisation for Operational Considerations
 I've explored a number of ideas for my project, and I expect it will continue to evolve over the remainder of my study. As discussed above, they all centre around the concepts of trajectory design for cislunar applications. If my work touches on your research areas or you'd like to open a dialogue about it, I encourage you to get in touch via email (in the sidebar)!
 ## A risky region of space
 Cislunar space represents a highly non-linear, chaotic, and uncertain area of space. At the time of writing, there are 38 public and private missions planned to the Moon, in addition to those already there. This is to become a very congested region, and the space will have to be shared. 
